@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Windows.Forms;
+using System.IO;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace TFBase
 {
@@ -24,5 +25,15 @@ namespace TFBase
 
         // Write own Logfile Format (can be opened with basic Text-Editor, but also in our own Application (f.e. use csv format, or something like this)
         // Also, critical issues, at least Level 8 should be logged into Windows Event Log
+
+        static string AppDataPath = Application.ExecutablePath + @"\logs\";
+
+        public void WriteLogFile(int LogLevel,
+            string LogMessage //hier soll noch mehr hin
+            )
+            
+        {
+            // Do your work here
+        }
     }
 }

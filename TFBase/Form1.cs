@@ -32,6 +32,8 @@ namespace TFBase
         //Logfile Writer
         LogFileWriter l_Writer = new LogFileWriter();
         TrayIcon trayIcon = new TrayIcon();
+        ConfigWriter c_Writer = new ConfigWriter();
+        ConfigReader c_Reader = new ConfigReader();
 
 
         private void Form1_Load(object sender, EventArgs e)
