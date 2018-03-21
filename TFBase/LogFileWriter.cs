@@ -26,14 +26,88 @@ namespace TFBase
         // Write own Logfile Format (can be opened with basic Text-Editor, but also in our own Application (f.e. use csv format, or something like this)
         // Also, critical issues, at least Level 8 should be logged into Windows Event Log
 
-        static string AppDataPath = Application.ExecutablePath + @"\logs\";
+        Globals globals = new Globals();
 
         public void WriteLogFile(int LogLevel,
-            string LogMessage //hier soll noch mehr hin
-            )
-            
+            string LogMessage, string AdditionalInformation = null,
+            [CallerMemberName] string sourceMemberName = "",
+            [CallerFilePath] string sourceFilePath = "",
+            [CallerLineNumber] int sourceLineNumber = 0)
         {
-            // Do your work here
+            // Generate Date / Time Format for LogfileName
+            string DateTimeFileName = DateTime.Today.ToString("yyyy-MM-dd");
+
+            if (!Directory.Exists(globals.LOG_PATH))
+            {
+                try
+                {
+                    // Verzeichnis anlegen, falls nicht existent
+                    DirectoryInfo di = Directory.CreateDirectory(globals.LOG_PATH);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Schwerwiegender Fehler!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                    //write Windows EventLog-Instead?
+                }
+            }
+            else
+            {
+                string LogFile = "";
+                // Create FileName for Application_Log
+
+                LogFile = globals.LOG_PATH + @"\AppLog_" + DateTimeFileName + ".log";
+
+                try
+                {
+                    using (StreamWriter sw = File.AppendText(LogFile))
+                    {
+                        if (String.IsNullOrEmpty(AdditionalInformation))
+                        {
+                            LogMessage = DateTime.Now.ToString() +
+                            " -- " +
+                            LogLevel +
+                            " -- " +
+                            LogMessage +
+                            Environment.NewLine +
+                            "SourceFile: " +
+                            Path.GetFileName(sourceFilePath) +
+                            " // Method: " +
+                            sourceMemberName +
+                            " // Line: " +
+                            sourceLineNumber +
+                            Environment.NewLine;
+                        }
+                        else
+                        {
+                            LogMessage = DateTime.Now.ToString() +
+                            " -- " +
+                            LogLevel +
+                            " -- " +
+                            LogMessage +
+                            Environment.NewLine +
+                            "SourceFile: " +
+                            Path.GetFileName(sourceFilePath) +
+                            " // Method: " +
+                            sourceMemberName +
+                            " // Line: " +
+                            sourceLineNumber +
+                            Environment.NewLine +
+                            AdditionalInformation +
+                            Environment.NewLine;
+                        }
+
+                        sw.WriteLine(LogMessage);
+                        sw.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Schwerwiegender Fehler!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                    //write Windows EventLog-Instead?
+                }
+            }
         }
     }
 }

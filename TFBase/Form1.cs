@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.ServiceProcess;
+
 
 namespace TFBase
 {
@@ -29,16 +32,40 @@ namespace TFBase
             InitializeComponent();
         }
 
-        //Logfile Writer
         LogFileWriter l_Writer = new LogFileWriter();
         TrayIcon trayIcon = new TrayIcon();
         ConfigWriter c_Writer = new ConfigWriter();
         ConfigReader c_Reader = new ConfigReader();
+        DeviceIdentifiers dev_Ident = new DeviceIdentifiers();
+        Globals globals = new Globals();
 
+        ServiceControllerPermission scp = new ServiceControllerPermission(ServiceControllerPermissionAccess.Control, Environment.MachineName, "Brick Daemon");
+        ServiceController sc = new ServiceController("Brick Daemon");
 
         private void Form1_Load(object sender, EventArgs e)
         {
             trayIcon.ShowTrayIcon();
         }
+
+        private enum SimpleServiceCustomCommands
+        {
+            StopWorker = 128,
+            RestartWorker,
+            CheckWorker
+        }
+
+        private void TestAdmin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sc.ExecuteCommand((int)SimpleServiceCustomCommands.StopWorker);
+                //sc.Stop();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }
