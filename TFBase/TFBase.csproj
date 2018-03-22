@@ -137,5 +137,11 @@
   <ItemGroup>
     <None Include="Resources\Target.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\AppSettings.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

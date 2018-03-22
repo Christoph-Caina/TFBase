@@ -54,6 +54,35 @@ namespace TFBase
 
         //==================================================================================================================================================================================
 
+        private void Form1_Resize(object sender, System.EventArgs e)
+        {
+            // if Setting MinimizeToTray = true
+            if (WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                WindowState = FormWindowState.Minimized;
+            }
+        }
+
+        //==================================================================================================================================================================================
+
+        private void TFTrayIcon_MouseDoubleClick(object sender, EventArgs e)
+        {
+            // if Setting MinimizeToTray = true
+            if (WindowState == FormWindowState.Minimized)
+            {
+                Show();
+                WindowState = FormWindowState.Normal;
+            }
+            else if (WindowState == FormWindowState.Normal)
+            {
+                Hide();
+                WindowState = FormWindowState.Minimized;
+            }
+        }
+
+        //==================================================================================================================================================================================
+
         private void ShowTrayIcon(string IconType = null)
         {
 
@@ -102,7 +131,7 @@ namespace TFBase
 
             // Brick Daemon Options & Submenu
             BrickDaemonOptions.Visible = true;
-            BrickDaemonOptions.Enabled = false;
+            BrickDaemonOptions.Enabled = true;
 
                 ServiceStart.Visible = true;
                 ServiceStart.Enabled = false;
@@ -115,6 +144,9 @@ namespace TFBase
 
                 ServiceRestart.Visible = true;
                 ServiceRestart.Enabled = false;
+
+                LogViewer.Visible = true;
+                LogViewer.Enabled = true;
         }
 
         //==================================================================================================================================================================================
@@ -150,6 +182,13 @@ namespace TFBase
         private void ServiceRestart_Click(object sender, EventArgs e)
         {
             bd_Manager.ServiceHandler("restart");
+        }
+
+        //==================================================================================================================================================================================
+
+        private void LogViewer_Click(object sender, EventArgs e)
+        {
+            Process.Start(/*BrickDaemonRootPath + */@"C:\\Program Files (x86)\\Tinkerforge\\BrickD\Logviewer.exe");
         }
     }
 }

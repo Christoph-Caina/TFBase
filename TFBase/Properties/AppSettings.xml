@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <group name="connections">
+    <connection id="1">
+      <parameter name="host">localhost</parameter>
+      <parameter name="port">4223</parameter>
+      <parameter name="useBrickDaemon">true</parameter>
+    </connection>
+    <connection id="2">
+      <parameter name="host">192.168.52.71</parameter>
+      <parameter name="port">4223</parameter>
+      <parameter name="useBrickDaemon">false</parameter>
+    </connection>
+  </group>
+  <group name="userSettings">
+    <parameter name="MinimizeToTray">true</parameter>
+  </group>
+  <group name="BrickDaemonSettings">
+    <parameter name="BrickDaemonRootPath">C:\Program Files (x86)\Tinkerforge\Brickd\</parameter>
+    <parameter name="RunAsService">true</parameter>
+    <parameter name="CheckForUpdates">false</parameter>
+  </group>
+</configuration>
