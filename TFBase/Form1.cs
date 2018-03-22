@@ -12,7 +12,6 @@ using System.ServiceProcess;
 
 namespace TFBase
 {
-
     /************************************************************/
     /*        TF Base (c) 2018 by Christoph Caina               */
     /*                                                          */
@@ -41,6 +40,9 @@ namespace TFBase
         ConfigReader conf_Reader = new ConfigReader();
         BrickDaemonManager bd_Manager = new BrickDaemonManager();
         DeviceIdentifiers dev_Ident = new DeviceIdentifiers();
+        UserSettings user_Settings = new UserSettings();
+
+
         Globals globals = new Globals();
 
         //==================================================================================================================================================================================
@@ -189,6 +191,12 @@ namespace TFBase
         private void LogViewer_Click(object sender, EventArgs e)
         {
             Process.Start(/*BrickDaemonRootPath + */@"C:\\Program Files (x86)\\Tinkerforge\\BrickD\Logviewer.exe");
+        }
+        //==================================================================================================================================================================================
+
+        private void ApplicationSettings_Click(object sender, EventArgs e)
+        {
+            user_Settings.ShowDialog();
         }
     }
 }

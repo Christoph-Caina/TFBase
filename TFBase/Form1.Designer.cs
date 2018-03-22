@@ -39,7 +39,12 @@
             this.LogViewer = new System.Windows.Forms.ToolStripMenuItem();
             this.AppExit = new System.Windows.Forms.ToolStripMenuItem();
             this.TFTrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ApplicationSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.App_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.TFTrayIconMenu.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TFTrayIconMenu
@@ -68,7 +73,7 @@
             // 
             this.ServiceStart.Image = global::TFBase.Properties.Resources.Play;
             this.ServiceStart.Name = "ServiceStart";
-            this.ServiceStart.Size = new System.Drawing.Size(180, 22);
+            this.ServiceStart.Size = new System.Drawing.Size(132, 22);
             this.ServiceStart.Text = "Starten";
             this.ServiceStart.Click += new System.EventHandler(this.ServiceStart_Click);
             // 
@@ -76,7 +81,7 @@
             // 
             this.ServiceStop.Image = global::TFBase.Properties.Resources.Stop;
             this.ServiceStop.Name = "ServiceStop";
-            this.ServiceStop.Size = new System.Drawing.Size(180, 22);
+            this.ServiceStop.Size = new System.Drawing.Size(132, 22);
             this.ServiceStop.Text = "Beenden";
             this.ServiceStop.Click += new System.EventHandler(this.ServiceStop_Click);
             // 
@@ -84,7 +89,7 @@
             // 
             this.ServicePause.Image = global::TFBase.Properties.Resources.Pause;
             this.ServicePause.Name = "ServicePause";
-            this.ServicePause.Size = new System.Drawing.Size(180, 22);
+            this.ServicePause.Size = new System.Drawing.Size(132, 22);
             this.ServicePause.Text = "Pausieren";
             this.ServicePause.Click += new System.EventHandler(this.ServicePause_Click);
             // 
@@ -92,20 +97,20 @@
             // 
             this.ServiceRestart.Image = global::TFBase.Properties.Resources.Next_track;
             this.ServiceRestart.Name = "ServiceRestart";
-            this.ServiceRestart.Size = new System.Drawing.Size(180, 22);
+            this.ServiceRestart.Size = new System.Drawing.Size(132, 22);
             this.ServiceRestart.Text = "Neustarten";
             this.ServiceRestart.Click += new System.EventHandler(this.ServiceRestart_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(129, 6);
             // 
             // LogViewer
             // 
             this.LogViewer.Image = global::TFBase.Properties.Resources.Notes;
             this.LogViewer.Name = "LogViewer";
-            this.LogViewer.Size = new System.Drawing.Size(180, 22);
+            this.LogViewer.Size = new System.Drawing.Size(132, 22);
             this.LogViewer.Text = "LogViewer";
             this.LogViewer.Click += new System.EventHandler(this.LogViewer_Click);
             // 
@@ -123,17 +128,56 @@
             this.TFTrayIcon.Visible = true;
             this.TFTrayIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TFTrayIcon_MouseDoubleClick);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dateiToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 1;
+            // 
+            // dateiToolStripMenuItem
+            // 
+            this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ApplicationSettings,
+            this.App_Exit});
+            this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
+            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.dateiToolStripMenuItem.Text = "Programm";
+            // 
+            // ApplicationSettings
+            // 
+            this.ApplicationSettings.Image = global::TFBase.Properties.Resources.Application;
+            this.ApplicationSettings.Name = "ApplicationSettings";
+            this.ApplicationSettings.Size = new System.Drawing.Size(180, 22);
+            this.ApplicationSettings.Text = "Einstellungen";
+            this.ApplicationSettings.Click += new System.EventHandler(this.ApplicationSettings_Click);
+            // 
+            // App_Exit
+            // 
+            this.App_Exit.Image = global::TFBase.Properties.Resources.AppExit;
+            this.App_Exit.Name = "App_Exit";
+            this.App_Exit.Size = new System.Drawing.Size(180, 22);
+            this.App_Exit.Text = "Beenden";
+            this.App_Exit.Click += new System.EventHandler(this.AppExit_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.TFTrayIconMenu.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -149,6 +193,10 @@
         private System.Windows.Forms.ToolStripMenuItem ServiceRestart;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem LogViewer;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem dateiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ApplicationSettings;
+        private System.Windows.Forms.ToolStripMenuItem App_Exit;
     }
 }
 
