@@ -15,6 +15,8 @@ namespace TFBase
                 // Dieser Teil sollte zur besseren Lesbarkeit in eine eigene Funktion / Klasse ausgelagert werden
                 // und nur an dieser Stelle dann aufgerufen werden.
                 //
+
+                // Bricks
                 case "11":
                     DeviceName = BrickDC.DEVICE_DISPLAY_NAME.ToString();
                     break;
@@ -47,6 +49,7 @@ namespace TFBase
                     DeviceName = BrickSilentStepper.DEVICE_DISPLAY_NAME.ToString();
                     break;
 
+                // Bricklets
                 case "21":
                     DeviceName = BrickletAmbientLight.DEVICE_DISPLAY_NAME.ToString();
                     break;
