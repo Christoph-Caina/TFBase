@@ -102,7 +102,7 @@ namespace TFBase
 
             // Brick Daemon Options & Submenu
             BrickDaemonOptions.Visible = true;
-            BrickDaemonOptions.Enabled = false;
+            BrickDaemonOptions.Enabled = true;
 
                 ServiceStart.Visible = true;
                 ServiceStart.Enabled = false;
@@ -115,6 +115,9 @@ namespace TFBase
 
                 ServiceRestart.Visible = true;
                 ServiceRestart.Enabled = false;
+
+                LogViewer.Visible = true;
+                LogViewer.Enabled = true;
         }
 
         //==================================================================================================================================================================================
@@ -150,6 +153,12 @@ namespace TFBase
         private void ServiceRestart_Click(object sender, EventArgs e)
         {
             bd_Manager.ServiceHandler("restart");
+        }
+
+        private void LogViewer_Click(object sender, EventArgs e)
+        {
+            // Get BrickDaemon Root Path from Settings!
+            Process.Start(/*BrickDaemonRootPath + */ @"C:\\Program Files (x86)\\Tinkerforge\\Brick Daemon\\logviewer.exe");
         }
     }
 }

@@ -13,7 +13,7 @@ namespace TFBase
         // Start / Stop Service
         // Run Console Version, etc.
 
-        private void ServiceHandler(string sAction)
+        public void ServiceHandler(string sAction)
         {
             switch (sAction)
             {
