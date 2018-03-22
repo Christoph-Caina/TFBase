@@ -39,6 +39,7 @@ namespace TFBase
         //TrayIcon tray_Icon = new TrayIcon();
         ConfigWriter conf_Writer = new ConfigWriter();
         ConfigReader conf_Reader = new ConfigReader();
+        BrickDaemonManager bd_Manager = new BrickDaemonManager();
         DeviceIdentifiers dev_Ident = new DeviceIdentifiers();
         Globals globals = new Globals();
 
@@ -121,6 +122,34 @@ namespace TFBase
         private void AppExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        //==================================================================================================================================================================================
+
+        private void ServiceStart_Click(object sender, EventArgs e)
+        {
+            bd_Manager.ServiceHandler("start");
+        }
+
+        //==================================================================================================================================================================================
+
+        private void ServiceStop_Click(object sender, EventArgs e)
+        {
+            bd_Manager.ServiceHandler("stop");
+        }
+
+        //==================================================================================================================================================================================
+
+        private void ServicePause_Click(object sender, EventArgs e)
+        {
+            bd_Manager.ServiceHandler("pause");
+        }
+
+        //==================================================================================================================================================================================
+
+        private void ServiceRestart_Click(object sender, EventArgs e)
+        {
+            bd_Manager.ServiceHandler("restart");
         }
     }
 }

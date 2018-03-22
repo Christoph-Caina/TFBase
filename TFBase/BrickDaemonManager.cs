@@ -12,5 +12,27 @@ namespace TFBase
         // Install - Uninstall Service
         // Start / Stop Service
         // Run Console Version, etc.
+
+        private void ServiceHandler(string sAction)
+        {
+            switch (sAction)
+            {
+                case "start":
+                    // do Code
+                    break;
+
+                case "stop":
+                    // do Code
+                    break;
+
+                case "pause":
+                    // do Code
+                    break;
+
+                case "restart":
+                    // do Code
+                    break;
+            }
+        }
     }
 }

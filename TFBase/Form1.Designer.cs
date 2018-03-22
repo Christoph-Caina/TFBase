@@ -46,7 +46,7 @@
             this.BrickDaemonOptions,
             this.AppExit});
             this.TFTrayIconMenu.Name = "TFTrayIconMenu";
-            this.TFTrayIconMenu.Size = new System.Drawing.Size(149, 48);
+            this.TFTrayIconMenu.Size = new System.Drawing.Size(181, 70);
             // 
             // AppExit
             // 
@@ -64,9 +64,9 @@
             this.ServiceStop,
             this.ServicePause,
             this.ServiceRestart});
-            this.BrickDaemonOptions.Image = global::TFBase.Properties.Resources.Application;
+            this.BrickDaemonOptions.Image = global::TFBase.Properties.Resources.Target;
             this.BrickDaemonOptions.Name = "BrickDaemonOptions";
-            this.BrickDaemonOptions.Size = new System.Drawing.Size(148, 22);
+            this.BrickDaemonOptions.Size = new System.Drawing.Size(180, 22);
             this.BrickDaemonOptions.Text = "Brick Daemon";
             // 
             // ServiceStart
@@ -74,28 +74,32 @@
             this.ServiceStart.Image = global::TFBase.Properties.Resources.Play;
             this.ServiceStart.Name = "ServiceStart";
             this.ServiceStart.Size = new System.Drawing.Size(180, 22);
-            this.ServiceStart.Text = "Dienst Starten";
+            this.ServiceStart.Text = "Starten";
+            this.ServiceStart.Click += new System.EventHandler(this.ServiceStart_Click);
             // 
             // ServiceStop
             // 
             this.ServiceStop.Image = global::TFBase.Properties.Resources.Stop;
             this.ServiceStop.Name = "ServiceStop";
             this.ServiceStop.Size = new System.Drawing.Size(180, 22);
-            this.ServiceStop.Text = "Dienst Beenden";
+            this.ServiceStop.Text = "Beenden";
+            this.ServiceStop.Click += new System.EventHandler(this.ServiceStop_Click);
             // 
             // ServicePause
             // 
             this.ServicePause.Image = global::TFBase.Properties.Resources.Pause;
             this.ServicePause.Name = "ServicePause";
             this.ServicePause.Size = new System.Drawing.Size(180, 22);
-            this.ServicePause.Text = "Dienst Pausieren";
+            this.ServicePause.Text = "Pausieren";
+            this.ServicePause.Click += new System.EventHandler(this.ServicePause_Click);
             // 
             // ServiceRestart
             // 
             this.ServiceRestart.Image = global::TFBase.Properties.Resources.Next_track;
             this.ServiceRestart.Name = "ServiceRestart";
             this.ServiceRestart.Size = new System.Drawing.Size(180, 22);
-            this.ServiceRestart.Text = "Dienst Neustarten";
+            this.ServiceRestart.Text = "Neustarten";
+            this.ServiceRestart.Click += new System.EventHandler(this.ServiceRestart_Click);
             // 
             // TFTrayIcon
             // 
