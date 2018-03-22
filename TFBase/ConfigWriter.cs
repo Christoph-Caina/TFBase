@@ -7,6 +7,6 @@ namespace TFBase
 {
     class ConfigWriter
     {
-        LogFileWriter l_Writer = new LogFileWriter();
+        LogFileWriter log_Writer = new LogFileWriter();
     }
 }

@@ -32,19 +32,19 @@ namespace TFBase
             InitializeComponent();
         }
 
-        LogFileWriter l_Writer = new LogFileWriter();
-        TrayIcon trayIcon = new TrayIcon();
-        ConfigWriter c_Writer = new ConfigWriter();
-        ConfigReader c_Reader = new ConfigReader();
+        // own ClassImplementation
+        LogFileWriter log_Writer = new LogFileWriter();
+        TrayIcon tray_Icon = new TrayIcon();
+        ConfigWriter conf_Writer = new ConfigWriter();
+        ConfigReader conf_Reader = new ConfigReader();
         DeviceIdentifiers dev_Ident = new DeviceIdentifiers();
         Globals globals = new Globals();
 
-        ServiceControllerPermission scp = new ServiceControllerPermission(ServiceControllerPermissionAccess.Control, Environment.MachineName, "Brick Daemon");
-        ServiceController sc = new ServiceController("Brick Daemon");
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            trayIcon.ShowTrayIcon();
+            // Show default TrayIcon.
+            // We don't know if BrickDaemon Service is needed right now.
+            tray_Icon.ShowTrayIcon();
         }
     }
 }
