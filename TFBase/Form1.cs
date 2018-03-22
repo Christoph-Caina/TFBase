@@ -32,19 +32,95 @@ namespace TFBase
             InitializeComponent();
         }
 
+        //==================================================================================================================================================================================
+
         // own ClassImplementation
         LogFileWriter log_Writer = new LogFileWriter();
-        TrayIcon tray_Icon = new TrayIcon();
+        //TrayIcon tray_Icon = new TrayIcon();
         ConfigWriter conf_Writer = new ConfigWriter();
         ConfigReader conf_Reader = new ConfigReader();
         DeviceIdentifiers dev_Ident = new DeviceIdentifiers();
         Globals globals = new Globals();
 
+        //==================================================================================================================================================================================
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // Show default TrayIcon.
             // We don't know if BrickDaemon Service is needed right now.
-            tray_Icon.ShowTrayIcon();
+            ShowTrayIcon();
+        }
+
+        //==================================================================================================================================================================================
+
+        private void ShowTrayIcon(string IconType = null)
+        {
+
+            BuildTrayMenu();
+
+            // Decide, which TrayIcon we should display
+            try
+            {
+                switch (IconType)
+                {
+                    case "BrickDRunning":
+                        // Show BrickD Running Icon
+                        break;
+
+                    case "BrickDStopped":
+                        // Show BrickD Stopped Icon
+                        break;
+
+                    // other case option needs to be inserted here
+
+                    default:
+                        // Show default TF Icon
+                        TFTrayIcon.Icon = Properties.Resources.TFdefault;
+                        break;
+                }
+
+                // Only, if TrayIcon Set to true in Settings?
+                TFTrayIcon.Visible = true;
+                TFTrayIcon.ContextMenuStrip = TFTrayIconMenu;
+            }
+            catch (Exception ex)
+            {
+                log_Writer.WriteLogFile(8, ex.Message);
+            }
+        }
+
+        //==================================================================================================================================================================================
+
+        private void BuildTrayMenu()
+        {
+            // AppExit is always visible and enabled.
+            AppExit.Visible = true;
+            AppExit.Enabled = true;
+
+            // others depending on the settings
+
+            // Brick Daemon Options & Submenu
+            BrickDaemonOptions.Visible = true;
+            BrickDaemonOptions.Enabled = false;
+
+                ServiceStart.Visible = true;
+                ServiceStart.Enabled = false;
+
+                ServiceStop.Visible = true;
+                ServiceStop.Enabled = false;
+
+                ServicePause.Visible = true;
+                ServicePause.Enabled = false;
+
+                ServiceRestart.Visible = true;
+                ServiceRestart.Enabled = false;
+        }
+
+        //==================================================================================================================================================================================
+
+        private void AppExit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
