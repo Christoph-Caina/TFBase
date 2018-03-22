@@ -28,41 +28,8 @@ namespace TFBase
         // Green + CableON => Service Running and Connected to localhost Stack
 
 
-        NotifyIcon TFTrayIcon = new NotifyIcon();
-        ContextMenu TFTrayMenu = new ContextMenu();
+        LogFileWriter log_Writer = new LogFileWriter();
 
-        LogFileWriter l_Writer = new LogFileWriter();
-
-        public void ShowTrayIcon(string IconType = null)
-        {
-            // Decide, which TrayIcon we should display
-            try
-            {
-                switch (IconType)
-                {
-                    case "BrickDRunning":
-                        // Show BrickD Running Icon
-                        break;
-
-                    case "BrickDStopped":
-                        // Show BrickD Stopped Icon
-                        break;
-
-                    // other case option needs to be inserted here
-
-                    default:
-                        // Show default TF Icon
-                        TFTrayIcon.Icon = Properties.Resources.TFdefault;
-                        break;
-                }
-
-                // Only, if TrayIcon Set to true in Settings?
-                TFTrayIcon.Visible = true;
-            }
-            catch (Exception ex)
-            {
-                l_Writer.WriteLogFile(8, ex.Message);
-            }
-        }
+        
     }
 }
