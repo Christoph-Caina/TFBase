@@ -46,26 +46,5 @@ namespace TFBase
         {
             trayIcon.ShowTrayIcon();
         }
-
-        private enum SimpleServiceCustomCommands
-        {
-            StopWorker = 128,
-            RestartWorker,
-            CheckWorker
-        }
-
-        private void TestAdmin_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                sc.ExecuteCommand((int)SimpleServiceCustomCommands.StopWorker);
-                //sc.Stop();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
     }
 }

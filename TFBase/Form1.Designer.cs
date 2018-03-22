@@ -39,7 +39,6 @@
             this.TestAdmin.TabIndex = 0;
             this.TestAdmin.Text = "Test Admin";
             this.TestAdmin.UseVisualStyleBackColor = true;
-            this.TestAdmin.Click += new System.EventHandler(this.TestAdmin_Click);
             // 
             // Form1
             // 
